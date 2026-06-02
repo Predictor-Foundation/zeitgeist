@@ -387,7 +387,7 @@ pub struct AssetConvert;
 impl Convert<CurrencyId, Option<Location>> for AssetConvert {
     fn convert(id: CurrencyId) -> Option<Location> {
         match id {
-            Asset::Ztg => Some(Location::new(
+            Asset::Prd => Some(Location::new(
                 1,
                 [
                     Junction::Parachain(ParachainInfo::parachain_id().into()),
@@ -434,7 +434,7 @@ impl MaybeEquivalence<Location, CurrencyId> for AssetConvert {
 
     fn convert_back(id: &CurrencyId) -> Option<Location> {
         match id {
-            Asset::Ztg => Some(Location::new(
+            Asset::Prd => Some(Location::new(
                 1,
                 [
                     Junction::Parachain(ParachainInfo::parachain_id().into()),

@@ -701,7 +701,7 @@ All things about Global Disputes Fix ⚠️ :
 
 - Converted `base_asset` field of `Pool<Balance, MarketId>` from
   `Option<Asset<MarketId>>` to `Asset<MarketId>`. Pools with `base_asset` equal
-  to `None` are migrated to `Asset::Ztg`.
+  to `None` are migrated to `Asset::Prd`.
 
 - Changed the following events to include a `pool_amount` field which specifies
   the amount of pool shares being minted or burned:

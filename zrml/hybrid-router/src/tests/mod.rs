@@ -39,7 +39,7 @@ mod buy;
 mod sell;
 
 #[cfg(not(feature = "parachain"))]
-const BASE_ASSET: Asset<MarketId> = Asset::Ztg;
+const BASE_ASSET: Asset<MarketId> = Asset::Prd;
 #[cfg(feature = "parachain")]
 const BASE_ASSET: Asset<MarketId> = FOREIGN_ASSET;
 

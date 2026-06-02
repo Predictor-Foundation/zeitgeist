@@ -51,7 +51,7 @@ pub enum Asset<MarketId> {
     CombinatorialOutcomeLegacy, // Here to avoid having to migrate all holdings on the chain.
     PoolShare(PoolId),
     #[default]
-    Ztg,
+    Prd,
     ForeignAsset(u32),
     ParimutuelShare(MarketId, CategoryIndex),
     CombinatorialToken(CombinatorialId),

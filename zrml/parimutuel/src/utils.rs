@@ -29,7 +29,7 @@ where
 
     zeitgeist_primitives::types::Market {
         market_id: Default::default(),
-        base_asset: Asset::Ztg,
+        base_asset: Asset::Prd,
         creation: MarketCreation::Permissionless,
         creator_fee: Perbill::zero(),
         creator,

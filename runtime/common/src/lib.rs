@@ -2614,7 +2614,7 @@ macro_rules! create_common_tests {
                     t.execute_with(|| {
                         let alice = AccountId::from([0u8; 32]);
 
-                        let collateral: Asset<MarketId> = Asset::Ztg;
+                        let collateral: Asset<MarketId> = Asset::Prd;
                         let one: Balance = ZeitgeistBase::get().unwrap();
                         let total_cost: Balance = one.saturating_mul(100_000u128);
                         assert_ok!(AssetManager::deposit(collateral, &alice, total_cost));

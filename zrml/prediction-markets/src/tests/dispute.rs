@@ -31,7 +31,7 @@ fn it_allows_to_dispute_the_outcome_of_a_market() {
     ExtBuilder::default().build().execute_with(|| {
         let end = 2;
         simple_create_categorical_market(
-            Asset::Ztg,
+            Asset::Prd,
             MarketCreation::Permissionless,
             0..end,
             ScoringRule::AmmCdaHybrid,
@@ -76,7 +76,7 @@ fn dispute_fails_disputed_already() {
         let end = 2;
         assert_ok!(PredictionMarkets::create_market(
             RuntimeOrigin::signed(ALICE),
-            Asset::Ztg,
+            Asset::Prd,
             Perbill::zero(),
             BOB,
             MarketPeriod::Block(0..end),
@@ -117,7 +117,7 @@ fn dispute_fails_if_market_not_reported() {
         let end = 2;
         assert_ok!(PredictionMarkets::create_market(
             RuntimeOrigin::signed(ALICE),
-            Asset::Ztg,
+            Asset::Prd,
             Perbill::zero(),
             BOB,
             MarketPeriod::Block(0..end),
@@ -152,7 +152,7 @@ fn dispute_reserves_dispute_bond() {
         let end = 2;
         assert_ok!(PredictionMarkets::create_market(
             RuntimeOrigin::signed(ALICE),
-            Asset::Ztg,
+            Asset::Prd,
             Perbill::zero(),
             BOB,
             MarketPeriod::Block(0..end),
@@ -198,7 +198,7 @@ fn dispute_updates_market() {
         let end = 2;
         assert_ok!(PredictionMarkets::create_market(
             RuntimeOrigin::signed(ALICE),
-            Asset::Ztg,
+            Asset::Prd,
             Perbill::zero(),
             BOB,
             MarketPeriod::Block(0..end),
@@ -245,7 +245,7 @@ fn dispute_emits_event() {
         let end = 2;
         assert_ok!(PredictionMarkets::create_market(
             RuntimeOrigin::signed(ALICE),
-            Asset::Ztg,
+            Asset::Prd,
             Perbill::zero(),
             BOB,
             MarketPeriod::Block(0..end),
@@ -287,7 +287,7 @@ fn dispute_fails_unless_reported_or_disputed_market(status: MarketStatus) {
     ExtBuilder::default().build().execute_with(|| {
         // Creates a permissionless market.
         simple_create_categorical_market(
-            Asset::Ztg,
+            Asset::Prd,
             MarketCreation::Permissionless,
             0..2,
             ScoringRule::AmmCdaHybrid,

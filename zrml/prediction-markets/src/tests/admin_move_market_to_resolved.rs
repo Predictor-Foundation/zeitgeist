@@ -36,7 +36,7 @@ fn admin_move_market_to_resolved_resolves_reported_market() {
 
         // Give ALICE `SENTINEL_AMOUNT` free and reserved ZTG; we record the free balance to check
         // that the correct bonds are unreserved!
-        assert_ok!(AssetManager::deposit(Asset::Ztg, &ALICE, 2 * SENTINEL_AMOUNT));
+        assert_ok!(AssetManager::deposit(Asset::Prd, &ALICE, 2 * SENTINEL_AMOUNT));
         assert_ok!(Balances::reserve_named(
             &PredictionMarkets::reserve_id(),
             &ALICE,
@@ -83,7 +83,7 @@ fn admin_move_market_to_resolved_resolves_reported_market() {
         );
     };
     ExtBuilder::default().build().execute_with(|| {
-        test(Asset::Ztg);
+        test(Asset::Prd);
     });
     #[cfg(feature = "parachain")]
     ExtBuilder::default().build().execute_with(|| {
@@ -106,7 +106,7 @@ fn admin_move_market_to_resolved_resolves_disputed_market() {
 
         // Give ALICE `SENTINEL_AMOUNT` free and reserved ZTG; we record the free balance to check
         // that the correct bonds are unreserved!
-        assert_ok!(AssetManager::deposit(Asset::Ztg, &ALICE, 2 * SENTINEL_AMOUNT));
+        assert_ok!(AssetManager::deposit(Asset::Prd, &ALICE, 2 * SENTINEL_AMOUNT));
         assert_ok!(Balances::reserve_named(
             &PredictionMarkets::reserve_id(),
             &ALICE,
@@ -156,7 +156,7 @@ fn admin_move_market_to_resolved_resolves_disputed_market() {
         );
     };
     ExtBuilder::default().build().execute_with(|| {
-        test(Asset::Ztg);
+        test(Asset::Prd);
     });
     #[cfg(feature = "parachain")]
     ExtBuilder::default().build().execute_with(|| {
@@ -172,7 +172,7 @@ fn admin_move_market_to_resolved_fails_if_market_is_not_reported_or_disputed(
 ) {
     ExtBuilder::default().build().execute_with(|| {
         simple_create_categorical_market(
-            Asset::Ztg,
+            Asset::Prd,
             MarketCreation::Permissionless,
             0..33,
             ScoringRule::AmmCdaHybrid,

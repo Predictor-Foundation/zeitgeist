@@ -117,7 +117,7 @@ fn transfer_ztg_to_sibling_with_custom_fee() {
         assert_eq!(Balances::free_balance(sibling_parachain_account()), 0);
         assert_ok!(XTokens::transfer(
             RuntimeOrigin::signed(alice()),
-            Asset::Ztg,
+            Asset::Prd,
             transfer_amount,
             Box::new(
                 Location::new(
@@ -239,7 +239,7 @@ fn transfer_btc_sibling_to_zeitgeist() {
         );
         assert_ok!(XTokens::transfer(
             RuntimeOrigin::signed(alice()),
-            // Target chain will interpret XcmAsset::Ztg as BTC in this context.
+            // Target chain will interpret XcmAsset::Prd as BTC in this context.
             CurrencyId::Ztg,
             transfer_amount,
             Box::new(

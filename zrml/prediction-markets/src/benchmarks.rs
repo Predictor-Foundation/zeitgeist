@@ -66,7 +66,7 @@ fn create_market_common_parameters<T: Config>(
     is_disputable: bool,
 ) -> Result<(T::AccountId, T::AccountId, Deadlines<BlockNumberFor<T>>, MultiHash), &'static str> {
     let caller: T::AccountId = whitelisted_caller();
-    T::AssetManager::deposit(Asset::Ztg, &caller, (100u128 * LIQUIDITY).saturated_into()).unwrap();
+    T::AssetManager::deposit(Asset::Prd, &caller, (100u128 * LIQUIDITY).saturated_into()).unwrap();
     let oracle = caller.clone();
     let deadlines = Deadlines::<BlockNumberFor<T>> {
         grace_period: 1_u32.into(),
@@ -95,7 +95,7 @@ fn create_market_common<T: Config + pallet_timestamp::Config>(
     let (caller, oracle, deadlines, metadata) =
         create_market_common_parameters::<T>(dispute_mechanism.is_some())?;
     Call::<T>::create_market {
-        base_asset: Asset::Ztg,
+        base_asset: Asset::Prd,
         creator_fee,
         oracle,
         period,
@@ -345,7 +345,7 @@ benchmarks! {
         let outcome = OutcomeReport::Scalar(0);
         let disputor = account("disputor", 1, 0);
         <T as pallet::Config>::AssetManager::deposit(
-            Asset::Ztg,
+            Asset::Prd,
             &disputor,
             u128::MAX.saturated_into(),
         ).unwrap();
@@ -395,7 +395,7 @@ benchmarks! {
 
         let disputor = account("disputor", 1, 0);
         <T as pallet::Config>::AssetManager::deposit(
-            Asset::Ztg,
+            Asset::Prd,
             &disputor,
             u128::MAX.saturated_into(),
         ).unwrap();
@@ -489,7 +489,7 @@ benchmarks! {
         }
     }: _(
             RawOrigin::Signed(caller),
-            Asset::Ztg,
+            Asset::Prd,
             Perbill::zero(),
             oracle,
             period,
@@ -513,7 +513,7 @@ benchmarks! {
         let (caller, oracle, deadlines, metadata) =
             create_market_common_parameters::<T>(true)?;
         Call::<T>::create_market {
-            base_asset: Asset::Ztg,
+            base_asset: Asset::Prd,
             creator_fee: Perbill::zero(),
             oracle: oracle.clone(),
             period: period.clone(),
@@ -545,7 +545,7 @@ benchmarks! {
         };
     }: _(
             RawOrigin::Signed(caller),
-            Asset::Ztg,
+            Asset::Prd,
             market_id,
             oracle,
             period,
@@ -587,7 +587,7 @@ benchmarks! {
         for i in 0..zrml_court::Pallet::<T>::necessary_draws_weight(0usize) {
             let juror: T::AccountId = account("Jurori", i.try_into().unwrap(), 0);
             <T as pallet::Config>::AssetManager::deposit(
-                Asset::Ztg,
+                Asset::Prd,
                 &juror,
                 (u128::MAX / 2).saturated_into(),
             ).unwrap();
@@ -599,7 +599,7 @@ benchmarks! {
 
         let disputor: T::AccountId = account("Disputor", 1, 0);
         <T as pallet::Config>::AssetManager::deposit(
-            Asset::Ztg,
+            Asset::Prd,
             &disputor,
             u128::MAX.saturated_into(),
         ).unwrap();
@@ -854,7 +854,7 @@ benchmarks! {
         let end: MomentOf<T> = 1_000_000u64.saturated_into();
         let (caller, oracle, _, metadata) = create_market_common_parameters::<T>(false)?;
         Call::<T>::create_market {
-            base_asset: Asset::Ztg,
+            base_asset: Asset::Prd,
             creator_fee: Perbill::zero(),
             oracle: caller.clone(),
             period: MarketPeriod::Timestamp(start..end),
@@ -1286,7 +1286,7 @@ benchmarks! {
         let m in 0..63; // Number of markets closing on the same block.
         let n in 2..T::MaxCategories::get() as u32; // Number of assets in the market.
 
-        let base_asset = Asset::Ztg;
+        let base_asset = Asset::Prd;
         let range_start = (5 * MILLISECS_PER_BLOCK) as u64;
         let range_end = (100 * MILLISECS_PER_BLOCK) as u64;
         let period = MarketPeriod::Timestamp(range_start..range_end);

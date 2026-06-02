@@ -76,7 +76,7 @@ fn convert_common_non_native<T>(
 
 #[test]
 fn convert_native_assets() {
-    convert_common_native(Asset::Ztg);
+    convert_common_native(Asset::Prd);
 }
 
 #[test]

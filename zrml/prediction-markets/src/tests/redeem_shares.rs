@@ -58,7 +58,7 @@ fn it_allows_to_redeem_shares() {
         );
     };
     ExtBuilder::default().build().execute_with(|| {
-        test(Asset::Ztg);
+        test(Asset::Prd);
     });
     #[cfg(feature = "parachain")]
     ExtBuilder::default().build().execute_with(|| {
@@ -88,7 +88,7 @@ fn redeem_shares_fails_if_invalid_resolution_mechanism(scoring_rule: ScoringRule
         );
     };
     ExtBuilder::default().build().execute_with(|| {
-        test(Asset::Ztg);
+        test(Asset::Prd);
     });
     #[cfg(feature = "parachain")]
     ExtBuilder::default().build().execute_with(|| {
@@ -104,7 +104,7 @@ fn scalar_market_correctly_resolves_on_out_of_range_outcomes_below_threshold() {
         assert_eq!(AssetManager::free_balance(base_asset, &EVE), 1100 * BASE);
     };
     ExtBuilder::default().build().execute_with(|| {
-        test(Asset::Ztg);
+        test(Asset::Prd);
     });
     #[cfg(feature = "parachain")]
     ExtBuilder::default().build().execute_with(|| {
@@ -120,7 +120,7 @@ fn scalar_market_correctly_resolves_on_out_of_range_outcomes_above_threshold() {
         assert_eq!(AssetManager::free_balance(base_asset, &EVE), 1000 * BASE);
     };
     ExtBuilder::default().build().execute_with(|| {
-        test(Asset::Ztg);
+        test(Asset::Prd);
     });
     #[cfg(feature = "parachain")]
     ExtBuilder::default().build().execute_with(|| {

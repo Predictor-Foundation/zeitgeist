@@ -376,7 +376,7 @@ where
     };
 
     Market {
-        base_asset: Asset::Ztg,
+        base_asset: Asset::Prd,
         market_id: Default::default(),
         creation: MarketCreation::Permissionless,
         creator_fee: Perbill::zero(),

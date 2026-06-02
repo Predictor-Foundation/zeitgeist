@@ -204,7 +204,7 @@ parameter_types! {
     pub const MaxSplits: u16 = 128u16;
 
     // ORML
-    pub const GetNativeCurrencyId: CurrencyId = Asset::Ztg;
+    pub const GetNativeCurrencyId: CurrencyId = Asset::Prd;
 
     // Prediction Market parameters
     /// (Slashable) Bond that is provided for creating an advised market that needs approval.
@@ -472,7 +472,7 @@ parameter_type_with_key! {
             }
             #[cfg(not(feature = "parachain"))]
             Asset::ForeignAsset(_) => ExistentialDeposit::get(),
-            Asset::Ztg => ExistentialDeposit::get(),
+            Asset::Prd => ExistentialDeposit::get(),
             Asset::ParimutuelShare(_, _) => ExistentialDeposit::get(),
         }
     };

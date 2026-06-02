@@ -2580,10 +2580,10 @@ fn pool_exit_burns_small_amounts() {
         // Create a mock-up of a closed pool with ZTG balance dusted and winning outcome balance
         // below ED.
         let pool_id = 0;
-        let assets = vec![Asset::CategoricalOutcome(0, 3), Asset::Ztg].try_into().unwrap();
+        let assets = vec![Asset::CategoricalOutcome(0, 3), Asset::Prd].try_into().unwrap();
         let weights = create_b_tree_map!({
             Asset::CategoricalOutcome(0, 3) => 10_000_000_000,
-            Asset::Ztg => 100_000_000_000,
+            Asset::Prd => 100_000_000_000,
         })
         .try_into()
         .unwrap();

@@ -146,7 +146,7 @@ parameter_type_with_key! {
     pub ExistentialDeposits: |currency_id: CurrencyId| -> Balance {
         match currency_id {
             &BASE_ASSET => ExistentialDeposit::get(),
-            Asset::Ztg => ExistentialDeposit::get(),
+            Asset::Prd => ExistentialDeposit::get(),
             _ => 10_000_000,
         }
     };

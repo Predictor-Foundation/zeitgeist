@@ -124,7 +124,7 @@ mod benchmarks {
     #[benchmark]
     fn buy(n: Linear<2, 16>, o: Linear<0, 10>) {
         let buyer: T::AccountId = whitelisted_caller();
-        let base_asset = Asset::Ztg;
+        let base_asset = Asset::Prd;
         let asset_count = n.try_into().unwrap();
         let market_id = create_market_and_deploy_pool::<T>(
             buyer.clone(),
@@ -185,7 +185,7 @@ mod benchmarks {
     #[benchmark]
     fn sell(n: Linear<2, 10>, o: Linear<0, 10>) {
         let seller: T::AccountId = whitelisted_caller();
-        let base_asset = Asset::Ztg;
+        let base_asset = Asset::Prd;
         let asset_count = n.try_into().unwrap();
         let market_id = create_market_and_deploy_pool::<T>(
             seller.clone(),

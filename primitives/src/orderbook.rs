@@ -122,7 +122,7 @@ mod tests {
         types::{AccountId, Asset, MarketId},
     };
 
-    pub const BASE_ASSET: Asset<MarketId> = Asset::Ztg;
+    pub const BASE_ASSET: Asset<MarketId> = Asset::Prd;
 
     #[test]
     fn price_calculation_works() {
