@@ -28,6 +28,7 @@ mod utils;
 pub mod weights;
 
 pub use pallet::*;
+pub use types::Strategy;
 
 #[frame_support::pallet]
 mod pallet {
